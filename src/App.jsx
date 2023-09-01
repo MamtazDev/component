@@ -1,80 +1,156 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class OptionSelector extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedOptions: [],
-      totalAmount: 0,
-    };
-  }
+const App = () => {
+  const [show, setShow] = useState(false);
 
-  handleOptionClick = (option) => {
-    const { selectedOptions, totalAmount } = this.state;
+  const [options, setOptions] = useState([
+    "Option 1",
+    "Option 2",
+    "Option 3",
+    "Option 4",
+    "Option 5",
+    "Option 6",
+    "Option 7",
+    "Option 8",
+    "Option 9",
+    "Option 10",
+  ]);
+  const [activeOptions, setActiveOptions] = useState(options.map(() => false));
+  const [newArray, setNewArray] = useState([]);
 
-    if (selectedOptions.includes(option)) {
-      // If the option is already selected, remove it from selectedOptions
-      const newSelectedOptions = selectedOptions.filter(
-        (item) => item !== option
-      );
+  const handleClick = (index) => {
+    const selectedOption = options[index];
+    // Remove the selected option from options array
+    const updatedOptions = options.filter((_, i) => i !== index);
+    // Add the selected option to newArray
+    setOptions(updatedOptions);
+    setNewArray([...newArray, selectedOption]);
+  };
+  const handleClick2 = (sectionIndex, optionIndex) => {
+    // Calculate the actual index within the original options array
+    const index = sectionIndex * 5 + optionIndex;
 
-      this.setState((prevState) => ({
-        selectedOptions: newSelectedOptions,
-        totalAmount: prevState.totalAmount - 1, // Decrease the total amount
-      }));
-    } else {
-      // If the option is not selected, add it to selectedOptions
-      const newSelectedOptions = [...selectedOptions, option];
+    const selectedOption = options[index];
+    const updatedActiveOptions = [...activeOptions];
+    updatedActiveOptions[index] = true;
 
-      this.setState((prevState) => ({
-        selectedOptions: newSelectedOptions,
-        totalAmount: prevState.totalAmount + 1, // Increase the total amount
-      }));
-    }
+    setNewArray([...newArray, selectedOption]);
+    setActiveOptions(updatedActiveOptions);
   };
 
-  render() {
-    const { selectedOptions } = this.state;
-
-    return (
-      <div>
-        <div className="amount">Total Amount: {this.state.totalAmount}</div>
-        <div className="store">
-          {selectedOptions.map((option, index) => (
-            <label key={index}>
-              <input type="checkbox" defaultChecked />
-              {option}
-            </label>
-          ))}
-        </div>
-        <div className="element">
-          <h5>All</h5>
-          {[
-            "option 1",
-            "option 2",
-            "option 3",
-            "option 4",
-            "option 5",
-            "option 6",
-            "option 7",
-            "option 8",
-            "option 9",
-          ].map((option, index) => (
-            <div key={index} onClick={() => this.handleOptionClick(option)}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={selectedOptions.includes(option)}
-                  readOnly
-                />
-                {option}
-              </label>
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-12 col-lg-6">
+          <div className="component">
+            <div onClick={() => setShow(!show)} className="title">
+              <p>
+                Component Title 1{" "}
+                {newArray.length > 0 && <span>({newArray.length})</span>}
+              </p>
+              <i className={`${show && "rotate"} fa-solid fa-chevron-down`}></i>
             </div>
-          ))}
+            {show && (
+              <div>
+                <div className="picked">
+                  <h6>Picked</h6>
+                  {newArray.map((option, index) => (
+                    <div key={index} className="option">
+                      <div className="checkbox">
+                        <div className="inner_box"></div>
+                      </div>
+                      <p>{option}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="all">
+                  <h6>All</h6>
+                  {options.map((option, index) => (
+                    <div
+                      onClick={() => handleClick(index)}
+                      key={index}
+                      className="option"
+                    >
+                      <div className="checkbox">
+                        {" "}
+                        <div className="inner_box"></div>
+                      </div>
+                      <p>{option}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="col-12 col-lg-6">
+          <div className="component">
+            <div onClick={() => setShow(!show)} className="title">
+              <p>
+                Component Title 1{" "}
+                {newArray.length > 0 && <span>({newArray.length})</span>}
+              </p>
+              <i className={`${show && "rotate"} fa-solid fa-chevron-down`}></i>
+            </div>
+            {show && (
+              <div>
+                <div className="row">
+                  <div className="col-6">
+                    <div className="all">
+                      <h6>Section 1</h6>
+                      {options.slice(0, 5).map((option, index) => (
+                        <div
+                          onClick={() => handleClick2(0, index)}
+                          key={index}
+                          className="option"
+                        >
+                          <div className="checkbox">
+                            {" "}
+                            <div
+                              className={`option ${
+                                activeOptions[index]
+                                  ? "bg-warning w-100 h-100 rounded-1"
+                                  : "inner_box"
+                              }`}
+                            ></div>
+                          </div>
+                          <p>{option}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="col-6">
+                    <div className="all">
+                      <h6>Section 2</h6>{" "}
+                      {options.slice(5, 10).map((option, index) => (
+                        <div
+                          onClick={() => handleClick2(1, index)}
+                          key={index}
+                          className="option"
+                        >
+                          <div className="checkbox">
+                            {" "}
+                            <div
+                              className={`option ${
+                                activeOptions[index + 5] // Add 5 to account for the second section
+                                  ? "bg-warning w-100 h-100 rounded-1"
+                                  : "inner_box"
+                              }`}
+                            ></div>
+                          </div>
+                          <p>{option}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default OptionSelector;
+export default App;
