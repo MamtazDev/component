@@ -8,6 +8,7 @@ import Component5 from "./components/component5/Component5";
 const App = () => {
   return (
     <div className="container">
+      <h2 className="text-center m-5">Search Filter components</h2>
       <div className="row">
         <div className="col-12 col-lg-6">
           <Component1 />

@@ -36,7 +36,9 @@ const Component2 = () => {
   };
 
   return (
-    <div>
+    <>
+
+   
       <div className="component">
         <div onClick={() => setShow(!show)} className="title">
           <p>
@@ -100,7 +102,7 @@ const Component2 = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
