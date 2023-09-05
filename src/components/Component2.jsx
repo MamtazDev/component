@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 const Component2 = () => {
   const [show, setShow] = useState(false);
 
@@ -19,21 +18,17 @@ const Component2 = () => {
   const [newArray, setNewArray] = useState([]);
 
   const handleClick2 = (sectionIndex, optionIndex) => {
-    // Calculate the actual index within the original options array
     const index = sectionIndex * 5 + optionIndex;
-
     const selectedOption = options[index];
     const updatedActiveOptions = [...activeOptions];
-    updatedActiveOptions[index] = !updatedActiveOptions[index]; // Toggle the value
+    updatedActiveOptions[index] = !updatedActiveOptions[index];
 
     if (!updatedActiveOptions[index]) {
-      // If activeOptions is set to false, remove the option from newArray
       const updatedNewArray = newArray.filter(
         (option) => option !== selectedOption
       );
       setNewArray(updatedNewArray);
     } else {
-      // If activeOptions is set to true, add the option to newArray
       setNewArray([...newArray, selectedOption]);
     }
 
@@ -42,11 +37,10 @@ const Component2 = () => {
 
   return (
     <div>
-      {" "}
       <div className="component">
         <div onClick={() => setShow(!show)} className="title">
           <p>
-            Component Title 1{" "}
+            Component Title 2{" "}
             {newArray.length > 0 && <span>({newArray.length})</span>}
           </p>
           <i className={`${show && "rotate"} fa-solid fa-chevron-down`}></i>

@@ -1,0 +1,39 @@
+.angle_btn_design {
+    background-color: white !important;
+    border: none !important;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.component_full_six {
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    background: #FFF;
+    padding-right: 13px;
+    margin: 50px auto;
+    max-width: 300px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.073px;
+    padding-left: 0px !important;
+    height: 103px;
+}
+.component_full_six .ul_design {
+    padding-left: 14px;
+}
+
+.component_full_six .heading {
+    padding-left: 27px;
+    padding-top: 13px !important;
+    margin-bottom: 23px;
+}
+
+.left-arrow-design{
+    color: #5E6E784D;
+}
+.left-arrow-design:hover{
+    color: #5E6E78CC;
+}

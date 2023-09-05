@@ -1,0 +1,102 @@
+.date_btn {
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    background: #FFF;
+    width: 105px;
+    height: 23px;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.073px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.component_full_seven{
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    background: #FFF;
+    padding: 13px;
+    margin: 50px auto;
+    max-width: 300px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.073px;
+    padding-left: 0px !important;   
+}
+.component_full_seven .heading{
+    padding-left: 27px;
+    padding-top: 13px;
+}
+
+.component_full .heading {
+    padding-left: 27px;
+    padding-top: 13px;
+}
+
+.component_full .date_container {
+    padding: 0px 11px;
+}
+
+.date_container {
+    display: flex;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.073px;
+    /* 193.382% */
+    padding: 11px;
+    width: 300px !important;
+    gap: 3px;
+}
+.rotate{
+    transform: rotate(180deg);
+}
+.date_container span {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.073px;
+}
+
+.calender_design {
+    margin-top: 10px;
+    padding-left: 13px;
+}
+
+.before_date_text {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.073px;
+    /* 193.382% */
+}
+.dddddd {
+    display: flex;
+    justify-content: space-between;
+    align-items: center !important;
+gap: 4px;
+
+}
+
+.dddddd small {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27.073px;
+}
