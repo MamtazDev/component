@@ -91,7 +91,7 @@ export default function Component6() {
   const [open, setOpen] = useState(false);
   const [leftValue, setLeftValue] = useState("");
   const [rightValue, setRightValue] = useState("");
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(0);
 
   const handleOpen = () => {
     setOpen(!open);
@@ -119,12 +119,13 @@ export default function Component6() {
     setCount(count + 1);
     updateValues(count + 1);
   };
-
+  const title = `Component Title 6`;
+  const title2 = `Component Title 6 (1)`;
   return (
     <div>
       <div className={`${!open ? "component_four" : "component_full_six"}`}>
         <div onClick={handleOpen} className="heading">
-          <p className="title">Component Title 6</p>
+          <p className="title">{!count ? title : title2}</p>
           <p>
             {open ? (
               <i className="fas fa-angle-down rotate"></i>
@@ -146,12 +147,12 @@ export default function Component6() {
                 />
               </li>
               <li>
-                <button className="angle_btn_design" onClick={leftIncDec}>
+                <button className="angle_btn_design" onClick={rightIncDec}>
                   <i className="fas fa-angle-left left-arrow-design"></i>
                 </button>
               </li>
               <li>
-                <button className="angle_btn_design" onClick={rightIncDec}>
+                <button className="angle_btn_design" onClick={leftIncDec}>
                   <i className="fas fa-angle-right left-arrow-design"></i>
                 </button>
               </li>
@@ -163,9 +164,7 @@ export default function Component6() {
                   onChange={(e) => updateValues(100 - parseInt(e.target.value))}
                 />
               </li>
-              <li style={{ marginRight: "4px" }}>
-                % Lorem Ip
-              </li>
+              <li style={{ marginRight: "4px" }}>% Lorem Ip</li>
             </ul>
           </div>
         )}

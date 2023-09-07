@@ -94,7 +94,7 @@ p {
     line-height: 17px;
 }
 
-.all p {
+.all .op {
     color: #5E6E78;
     font-size: 13px;
     font-weight: 600;
@@ -103,6 +103,9 @@ p {
     background: rgba(94, 110, 120, 0.10);
     padding: 5px 8px;
     transition: 0.3s ease-in;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .all .inner_box {
@@ -113,7 +116,7 @@ p {
     transition: 0.3s ease-in;
 }
 
-.all .option:hover p {
+.all .option:hover .op {
     background: rgba(94, 110, 120, 0.20);
     color: #5E6E78;
 
@@ -168,4 +171,37 @@ p {
     font-style: normal;
     font-weight: 400;
 
+}
+
+.ppppp {
+    display: none;
+}
+
+
+.i_d_btn {
+
+    display: none;
+    padding: 0;
+
+}
+
+.i_d_btn button {
+    border: none;
+    background-color: transparent;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 7px;
+
+}
+
+.all .option:hover .ppppp {
+    display: block;
+}
+
+.all .option:hover .i_d_btn {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: center !important;
+    padding: 0;
 }

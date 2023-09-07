@@ -1,0 +1,160 @@
+/* import React, { useEffect, useState } from "react";
+import decrement from "../assets/incre.png";
+import increment from "../assets/decre.png";
+export default function Component1() {
+  const [show, setShow] = useState(false);
+  const [originalOptions, setOriginalOptions] = useState([
+    { option: "Option 1", value: 1 },
+    { option: "Option 2", value: 1 },
+    { option: "Option 3", value: 1 },
+    { option: "Option 4", value: 1 },
+    { option: "Option 5", value: 1 },
+    { option: "Option 6", value: 1 },
+    { option: "Option 7", value: 1 },
+    { option: "Option 8", value: 1 },
+    { option: "Option 9", value: 1 },
+    { option: "Option 10", value: 1 },
+  ]);
+  const [allOptions, setAllOptions] = useState(originalOptions);
+  const [pickedOptions, setPickedOptions] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [views, setViews] = useState(1);
+  useEffect(() => {
+    if (searchText === "") {
+      const unpickedOptions = originalOptions.filter(
+        (option) => !pickedOptions.includes(option)
+      );
+      setAllOptions(unpickedOptions);
+    } else {
+      const filteredOptions = originalOptions.filter(
+        (option) =>
+          !pickedOptions.includes(option) &&
+          option.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setAllOptions(filteredOptions);
+    }
+  }, [searchText, pickedOptions, originalOptions]);
+
+  const handleClick = (index) => {
+    const selectedOption = allOptions[index];
+    const updatedOptions = allOptions.filter((_, i) => i !== index);
+    setAllOptions(updatedOptions);
+    if (!pickedOptions.includes(selectedOption)) {
+      setPickedOptions([...pickedOptions, selectedOption]);
+    }
+  };
+
+  const handleRemove = (index) => {
+    const removedOption = pickedOptions[index];
+    const updatedPickedOptions = pickedOptions.filter((_, i) => i !== index);
+    setPickedOptions(updatedPickedOptions);
+    if (!allOptions.includes(removedOption)) {
+      const updatedOptions = [...allOptions, removedOption].sort((a, b) => {
+        const numA = parseInt(a.match(/\d+/)[0]);
+        const numB = parseInt(b.match(/\d+/)[0]);
+        return numA - numB;
+      });
+
+      setAllOptions(updatedOptions);
+    }
+  };
+
+  const handleSearch = (e) => {
+    const searchText = e.target.value;
+    setSearchText(searchText);
+  };
+
+  const handleViewsIncrement = () => {
+    setViews(views + 1);
+    console.log("increment")
+    console.log(first)
+  };
+
+  const handleViewsDecrement = () => {
+    if (views === 0) {
+      return;
+    }
+    setViews(views - 1);
+  };
+
+  return (
+    <>
+      <div className="component">
+        <div onClick={() => setShow(!show)} className="title">
+          <p>
+            Component Title 1
+            {pickedOptions.length > 0 && (
+              <span className="ml_3">({pickedOptions.length})</span>
+            )}
+          </p>
+          <i className={`${show && "rotate"} fa-solid fa-chevron-down`}></i>
+        </div>
+        {show && (
+          <div>
+            <input
+              type="text"
+              className="search_input"
+              onChange={handleSearch}
+              value={searchText}
+            />
+            <div className="picked">
+              <h6>Picked</h6>
+              {pickedOptions.map((op, index) => (
+                <div
+                  key={index}
+                  className="option"
+                  onClick={() => handleRemove(index)}
+                >
+                  <div className="checkbox">
+                    <div className="inner_box"></div>
+                  </div>
+                  <p>
+                    {op.option} + {views}M
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="all">
+              <h6>All</h6>
+              <div className="all_options_scroll">
+                {allOptions.map((op, index) => (
+                  <div className="">
+                    <div key={index} className="option">
+                      <div className="checkbox">
+                        <div className="inner_box"></div>
+                      </div>
+                      <div className="op">
+                        <div onClick={() => handleClick(index)}>
+                          {op.option}{" "}
+                        </div>{" "}
+                        <div className="ppppp">+ {op.value} M</div>
+                        <div className="i_d_btn">
+                          <button onClick={handleViewsIncrement}>
+                            <img
+                              className="img-fluid p-0 m-0"
+                              src={increment}
+                              alt=""
+                            />
+                          </button>{" "}
+                          <button onClick={handleViewsDecrement}>
+                            <img
+                              className="img-fluid p-0 m-0"
+                              src={decrement}
+                              alt=""
+                            />
+                          </button>
+                        </div>{" "}
+                      </div>
+                    </div>
+                    
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
+}
+ */
