@@ -47,6 +47,13 @@ p {
     gap: 5px;
     cursor: pointer;
     margin-bottom: 5px;
+
+}
+
+.all_options_scroll {
+    overflow-y: scroll;
+    max-height: 548.502px;
+
 }
 
 .picked {
@@ -109,12 +116,31 @@ p {
 .all .option:hover p {
     background: rgba(94, 110, 120, 0.20);
     color: #5E6E78;
+
+}
+
+.option:hover .input_option_designp {
+    display: block;
+
 }
 
 .all .option:hover .inner_box {
-    /* background: rgba(94, 110, 120, 0.40); */
     border-radius: 3px;
     background: rgba(94, 110, 120, 0.40);
     width: 100%;
     height: 100%;
+}
+
+
+
+.input_option_design {
+    width: 50px;
+    border: none;
+    /* display: none; */
+    text-align: center;
+}
+.hover_items{
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
 }
