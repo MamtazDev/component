@@ -47,7 +47,7 @@
 }
 
 .ul_design input {
-    width: 30px;
+    max-width: 35px;
     height: 26px;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.20);
@@ -92,7 +92,8 @@
 }
 
 .component_full_four .ul_design{
-    padding-left: 10px;
+    padding-left: 8px;
+
 }
 .component_full_four {
     height: auto;
@@ -100,14 +101,12 @@
     border: 1px solid rgba(0, 0, 0, 0.20);
     background: #FFF;
     /* padding: 13px; */
-
     margin: 50px auto;
-    max-width: 283px;
+    max-width: 283px !important;
     font-family: Montserrat;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 27.073px;
     padding-left: 0px !important;
 }
 
@@ -121,9 +120,6 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    /* padding: 9px 13px; */
-    /* line-height: 27.073px; */
-
 }
 
 /* .react_arrow {
@@ -135,7 +131,6 @@
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.20);
     background: #FFF;
-    margin-left: 5px;
     padding: 3px;
     border-radius: 10px;
     color: #000;
@@ -143,9 +138,12 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 27.073px;
-    /* 225.612% */
     cursor:pointer;
+}
+.options p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ======================= */

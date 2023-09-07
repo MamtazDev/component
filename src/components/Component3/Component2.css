@@ -114,3 +114,7 @@ p {
 .all .optionN:hover .innerbox {
     background: rgba(94, 110, 120, 0.40);
 }
+
+.ml_3{
+    margin-left: 5px;
+}

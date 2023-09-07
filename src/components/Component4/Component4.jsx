@@ -5,26 +5,26 @@ export default function Component4() {
   const [optionsOpen, setOptionsOpen] = useState(false);
   const [startValue, setStartValue] = useState(10);
   const [endValue, setEndValue] = useState(15);
-  const [options, setOptions] = useState([]);
-  useEffect(() => {
+  const [options, setOptions] = useState(["Option 2"]);
+  /*   useEffect(() => {
     const newOptions = [];
     for (let i = startValue; i <= endValue; i++) {
       newOptions.push(`Option ${i}`);
     }
     setOptions(newOptions);
-  }, [startValue, endValue]);
+  }, [startValue, endValue]); */
 
   const handleOpen = () => {
     setOpen(!open);
   };
 
   // input values
-  const handleStartInputChange = (e) => {
+  /*   const handleStartInputChange = (e) => {
     setStartValue(parseInt(e.target.value));
   };
   const handleEndInputChange = (e) => {
     setEndValue(parseInt(e.target.value));
-  };
+  }; */
   const handleOptionsOpen = () => {
     setOptionsOpen(!optionsOpen);
   };
@@ -33,7 +33,9 @@ export default function Component4() {
     <>
       <div className={`${!open ? "component_four" : "component_full_four"}`}>
         <div onClick={handleOpen} className="heading">
-          <p className="title">Component Title 4</p>
+          <p className="title">
+            Component Title 4 {open && <span className="ml_3">(2)</span>}
+          </p>
           <p>
             {open ? (
               <i className="fas fa-angle-down rotate"></i>
@@ -51,7 +53,7 @@ export default function Component4() {
                   type="text"
                   className="text_input"
                   defaultValue={startValue}
-                  onChange={handleStartInputChange}
+                  // onChange={handleStartInputChange}
                 />
               </li>
               <li>to</li>
@@ -60,21 +62,27 @@ export default function Component4() {
                   type="text"
                   className="text_input"
                   defaultValue={endValue}
-                  onChange={handleEndInputChange}
+                  // onChange={handleEndInputChange}
                 />
               </li>
-              <li>lorem</li>
+              <li style={{ marginRight: "4px" }}>lorem</li>
               <li>
                 <div onClick={handleOptionsOpen} className="options">
                   {optionsOpen ? (
-                    <div>
+                    <>
+                      Option 1
+                      {optionsOpen ? (
+                        <i className="m-2 fas fa-angle-down rotate"></i>
+                      ) : (
+                        <i className="m-2 fas fa-angle-down"></i>
+                      )}
                       {options.map((option) => (
-                        <option> {option}  </option>
+                        <option>{option}</option>
                       ))}
-                    </div>
+                    </>
                   ) : (
                     <p>
-                      Option 1 
+                      Option 1
                       {optionsOpen ? (
                         <i className="m-2 fas fa-angle-down rotate"></i>
                       ) : (

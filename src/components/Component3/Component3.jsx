@@ -1,48 +1,50 @@
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
+import "./Component2.css";
 const Component3 = () => {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
-    const [options, setOptions] = useState([
-      "Option 1",
-      "Option 2",
-      "Option 3",
-      "Option 4",
-      "Option 5",
-      "Option 6",
-      "Option 7",
-      "Option 8",
-      "Option 9",
-      "Option 10",
-    ]);
-    const [activeOptions, setActiveOptions] = useState(options.map(() => false));
-    const [newArray, setNewArray] = useState([]);
-  
-    const handleClick2 = (sectionIndex, optionIndex) => {
-      const index = sectionIndex * 5 + optionIndex;
-      const selectedOption = options[index];
-      const updatedActiveOptions = [...activeOptions];
-      updatedActiveOptions[index] = !updatedActiveOptions[index];
-  
-      if (!updatedActiveOptions[index]) {
-        const updatedNewArray = newArray.filter(
-          (option) => option !== selectedOption
-        );
-        setNewArray(updatedNewArray);
-      } else {
-        setNewArray([...newArray, selectedOption]);
-      }
-  
-      setActiveOptions(updatedActiveOptions);
-    };
-  
-    return (
-        <>
-          <div className="component">
+  const [options, setOptions] = useState([
+    "Option 1",
+    "Option 2",
+    "Option 3",
+    "Option 4",
+    "Option 5",
+    "Option 6",
+    "Option 7",
+    "Option 8",
+    "Option 9",
+    "Option 10",
+  ]);
+  const [activeOptions, setActiveOptions] = useState(options.map(() => false));
+  const [newArray, setNewArray] = useState([]);
+
+  const handleClick2 = (sectionIndex, optionIndex) => {
+    const index = sectionIndex * 5 + optionIndex;
+    const selectedOption = options[index];
+    const updatedActiveOptions = [...activeOptions];
+    updatedActiveOptions[index] = !updatedActiveOptions[index];
+
+    if (!updatedActiveOptions[index]) {
+      const updatedNewArray = newArray.filter(
+        (option) => option !== selectedOption
+      );
+      setNewArray(updatedNewArray);
+    } else {
+      setNewArray([...newArray, selectedOption]);
+    }
+
+    setActiveOptions(updatedActiveOptions);
+  };
+
+  return (
+    <>
+      <div className="component">
         <div onClick={() => setShow(!show)} className="title">
           <p>
             Component Title 3
-            {newArray.length > 0 && <span>({newArray.length})</span>}
+            <span className="ml_3">
+              {newArray.length > 0 && <span>({newArray.length})</span>}
+            </span>
           </p>
           <i className={`${show && "rotate"} fa-solid fa-chevron-down`}></i>
         </div>
@@ -67,18 +69,31 @@ const Component3 = () => {
                           }`}
                         ></div>
                       </div>
-                      <p>{option}</p>
+                      <p
+                        style={{
+                          background: activeOptions[index]
+                            ? "rgba(94, 110, 120, 0.20)"
+                            : "rgba(94, 110, 120, 0.10)",
+                          padding: activeOptions[index]
+                            ? "5px 8px"
+                            : "5px 8px",
+                          color: activeOptions[index]
+                            ? "#5E6E78"
+                            : "#5E6E78",
+                        }}
+                      >
+                        {option}
+                      </p>
                     </div>
                   ))}
                 </div>
               </div>
-        
             </div>
           </div>
         )}
-      </div>   
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default Component3;

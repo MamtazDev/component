@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Component5.css";
 export default function Component5() {
-  const [open, setOpen] = useState(false);
-  const [options, setOptions] = useState([
+  const [show, setShow] = useState(false);
+  const [originalOptions, setOriginalOptions] = useState([
     "Option 1",
     "Option 2",
     "Option 3",
@@ -12,80 +12,103 @@ export default function Component5() {
     "Option 7",
     "Option 8",
     "Option 9",
+    "Option 10",
   ]);
+  const [allOptions, setAllOptions] = useState(originalOptions);
+  const [pickedOptions, setPickedOptions] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
-  const handleOpen = () => {
-    setOpen(!open);
+  useEffect(() => {
+    if (searchText === "") {
+      const unpickedOptions = originalOptions.filter(
+        (option) => !pickedOptions.includes(option)
+      );
+      setAllOptions(unpickedOptions);
+    } else {
+      const filteredOptions = originalOptions.filter(
+        (option) =>
+          !pickedOptions.includes(option) &&
+          option.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setAllOptions(filteredOptions);
+    }
+  }, [searchText, pickedOptions, originalOptions]);
+
+  const handleClick = (index) => {
+    const selectedOption = allOptions[index];
+    const updatedOptions = allOptions.filter((_, i) => i !== index);
+    setAllOptions(updatedOptions);
+    if (!pickedOptions.includes(selectedOption)) {
+      setPickedOptions([...pickedOptions, selectedOption]);
+    }
   };
 
-  const [newOptions, setNewOptions] = useState([]);
-  const handleFilter = (value) => {
-    const newArray = options.filter((i) => i !== value);
-    setOptions(newArray);
-    setNewOptions((current) => [...current, value]);
+  const handleRemove = (index) => {
+    const removedOption = pickedOptions[index];
+    const updatedPickedOptions = pickedOptions.filter((_, i) => i !== index);
+    setPickedOptions(updatedPickedOptions);
+    if (!allOptions.includes(removedOption)) {
+      const updatedOptions = [...allOptions, removedOption].sort((a, b) => {
+        const numA = parseInt(a.match(/\d+/)[0]);
+        const numB = parseInt(b.match(/\d+/)[0]);
+        return numA - numB;
+      });
+
+      setAllOptions(updatedOptions);
+    }
   };
 
   const handleSearch = (e) => {
     const searchText = e.target.value;
-    const filteredOptions = options.filter((option) =>
-      option.toLowerCase().includes(searchText.toLowerCase())
-    );
-    setOptions(filteredOptions);
+    setSearchText(searchText);
   };
   return (
     <>
-      <div className={`${!open ? "component_four" : "component_full_five"}`}>
-        <div onClick={handleOpen} className="heading">
-          <p className="title">
-            Component Title 5{" "}
-            {newOptions.length > 0 && <span>({newOptions.length})</span>}
-          </p>
+      <div className="component">
+        <div onClick={() => setShow(!show)} className="title">
           <p>
-            {open ? (
-              <i className="fas fa-angle-down rotate"></i>
-            ) : (
-              <i className="fas fa-angle-down"></i>
-            )}
+            Component Title 5
+            {pickedOptions.length > 0 && <span className="ml_3">({pickedOptions.length})</span>}
           </p>
+          <i className={`${show && "rotate"} fa-solid fa-chevron-down`}></i>
         </div>
-        {open && (
-          <div className="option_design">
-            {/* picked */}
+        {show && (
+          <div>
             <input
-                  type="text"
-                  className="search_input"
-                  onChange={handleSearch}
-                />
+              type="text"
+              className="search_input"
+              onChange={handleSearch}
+              value={searchText}
+            />
             <div className="picked">
-              <small
-                style={{ textAlign: "left", marginBottom: "4px" }}
-                className="picked_heading"
-              >
-                Picked
-              </small>
-              {newOptions.map((option, index) => (
-                <div key={index} className="all_checkbox">
+              <h6>Picked</h6>
+              {pickedOptions.map((option, index) => (
+                <div
+                  key={index}
+                  className="option"
+                  onClick={() => handleRemove(index)}
+                >
                   <div className="checkbox">
                     <div className="inner_box"></div>
                   </div>
-                  <span className="option_text_design">{option}</span>
+                  <p>{option}</p>
                 </div>
               ))}
             </div>
-            {/*  all element */}
-            <div className="search_container all_options">
-              <small className="all_heading">All</small>
-              <div>
-               
-                {options.map((option) => (
+            <div className="all">
+              <h6>All (Sorted)</h6>
+              <div className="all_options_scroll">
+                {allOptions.map((option, index) => (
                   <div
-                    className="all_checkbox all_options_hover"
-                    onClick={() => handleFilter(option)}
+                    onClick={() => handleClick(index)}
+                    key={index}
+                    className="option"
                   >
                     <div className="checkbox">
+                      {" "}
                       <div className="inner_box"></div>
                     </div>
-                    <p className="option_text_design ">{option}</p>
+                    <p>{option}</p>
                   </div>
                 ))}
               </div>
@@ -96,3 +119,131 @@ export default function Component5() {
     </>
   );
 }
+
+/* 
+import React, { useState, useEffect } from "react";
+
+const Component1 = () => {
+  const [show, setShow] = useState(false);
+  const [originalOptions, setOriginalOptions] = useState([
+    "Option 1",
+    "Option 2",
+    "Option 3",
+    "Option 4",
+    "Option 5",
+    "Option 6",
+    "Option 7",
+    "Option 8",
+    "Option 9",
+    "Option 10",
+  ]);
+  const [allOptions, setAllOptions] = useState(originalOptions);
+  const [pickedOptions, setPickedOptions] = useState([]);
+  const [searchText, setSearchText] = useState("");
+
+  useEffect(() => {
+    // Apply search when search text changes
+    if (searchText === "") {
+      // If the search text is empty, show the unpicked list
+      const unpickedOptions = originalOptions.filter(
+        (option) => !pickedOptions.includes(option)
+      );
+      setAllOptions(unpickedOptions);
+    } else {
+      // Filter the "All (Sorted)" options based on the search text and whether they are picked
+      const filteredOptions = originalOptions.filter(
+        (option) =>
+          !pickedOptions.includes(option) &&
+          option.toLowerCase().includes(searchText.toLowerCase())
+      );
+      setAllOptions(filteredOptions);
+    }
+  }, [searchText, pickedOptions, originalOptions]);
+
+  const handleClick = (index) => {
+    const selectedOption = allOptions[index];
+    const updatedOptions = allOptions.filter((_, i) => i !== index);
+    setAllOptions(updatedOptions);
+    if (!pickedOptions.includes(selectedOption)) {
+      setPickedOptions([...pickedOptions, selectedOption]);
+    }
+  };
+
+  const handleRemove = (index) => {
+    const removedOption = pickedOptions[index];
+    const updatedPickedOptions = pickedOptions.filter((_, i) => i !== index);
+    setPickedOptions(updatedPickedOptions);
+    if (!allOptions.includes(removedOption)) {
+      const updatedOptions = [...allOptions, removedOption].sort((a, b) => {
+        const numA = parseInt(a.match(/\d+/)[0]);
+        const numB = parseInt(b.match(/\d+/)[0]);
+        return numA - numB;
+      });
+
+      setAllOptions(updatedOptions);
+    }
+  };
+
+  const handleSearch = (e) => {
+    const searchText = e.target.value;
+    setSearchText(searchText);
+  };
+
+  return (
+    <div className="component">
+      <div onClick={() => setShow(!show)} className="title">
+        <p>
+          Component Title 1{" "}
+          {pickedOptions.length > 0 && <span>({pickedOptions.length})</span>}
+        </p>
+        <i className={`${show && "rotate"} fa-solid fa-chevron-down`}></i>
+      </div>
+      {show && (
+        <div>
+          <input
+            type="text"
+            className="search_input"
+            onChange={handleSearch}
+            value={searchText}
+            placeholder="Search..."
+          />
+          <div className="picked">
+            <h6>Picked</h6>
+            {pickedOptions.map((option, index) => (
+              <div
+                key={index}
+                className="option"
+                onClick={() => handleRemove(index)}
+              >
+                <div className="checkbox">
+                  <div className="inner_box"></div>
+                </div>
+                <p>{option}</p>
+              </div>
+            ))}
+          </div>
+          <div className="all">
+            <h6>All (Sorted)</h6>
+            <div className="all_options_scroll">
+              {allOptions.map((option, index) => (
+                <div
+                  onClick={() => handleClick(index)}
+                  key={index}
+                  className="option"
+                >
+                  <div className="checkbox">
+                    {" "}
+                    <div className="inner_box"></div>
+                  </div>
+                  <p>{option}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Component1; */

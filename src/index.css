@@ -139,8 +139,33 @@ p {
     /* display: none; */
     text-align: center;
 }
-.hover_items{
+
+.hover_items {
     display: flex;
     justify-content: flex-start;
     gap: 8px;
+}
+
+.click_box {
+
+    border-radius: 19px;
+    background: rgba(94, 110, 120, 0.20);
+    padding: 5px 8px;
+    color: #5E6E78;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 17px;
+}
+
+.center_section_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+
 }

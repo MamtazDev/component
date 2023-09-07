@@ -37,8 +37,6 @@ const Component2 = () => {
 
   return (
     <>
-
-   
       <div className="component">
         <div onClick={() => setShow(!show)} className="title">
           <p>
@@ -52,7 +50,7 @@ const Component2 = () => {
             <div className="row">
               <div className="col-6">
                 <div className="all">
-                  <h6>Section 1</h6>
+                  <h6 className="center_section_text">Section 1</h6>
                   {options.slice(0, 5).map((option, index) => (
                     <div
                       onClick={() => handleClick2(0, index)}
@@ -69,14 +67,22 @@ const Component2 = () => {
                           }`}
                         ></div>
                       </div>
-                      <p>{option}</p>
+                      <p  style={{
+                          background: activeOptions[index]
+                            ? "rgba(94, 110, 120, 0.20)"
+                            : "rgba(94, 110, 120, 0.10)",
+                          padding: activeOptions[index] ? "5px 8px" : "5px 8px",
+                          color: activeOptions[index]
+                            ? "#5E6E78"
+                            : "#5E6E78",
+                        }}>{option}</p>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="col-6">
                 <div className="all">
-                  <h6>Section 2</h6>{" "}
+                  <h6 className="center_section_text">Section 2</h6>{" "}
                   {options.slice(5, 10).map((option, index) => (
                     <div
                       onClick={() => handleClick2(1, index)}
@@ -93,7 +99,19 @@ const Component2 = () => {
                           }`}
                         ></div>
                       </div>
-                      <p>{option}</p>
+                      <p
+                        style={{
+                          background: activeOptions[index + 5]
+                            ? "rgba(94, 110, 120, 0.20)"
+                            : "rgba(94, 110, 120, 0.10)",
+                          padding: activeOptions[index + 5] ? "5px 8px" : "5px 8px",
+                          color: activeOptions[index + 5]
+                            ? "#5E6E78"
+                            : "#5E6E78",
+                        }}
+                      >
+                        {option}
+                      </p>
                     </div>
                   ))}
                 </div>
