@@ -297,22 +297,42 @@ export default function Component1() {
                       <div className="op">
                         <div onClick={() => handleClick(index)}>{option}</div>{" "}
                         <div className="ppppp">+ {optionViews[option]} M</div>
-                        <div className="i_d_btn">
-                          <button onClick={() => handleViewsIncrement(option)}>
-                            <img
-                              className="img-fluid p-0 m-0"
-                              src={increment}
-                              alt=""
-                            />
-                          </button>{" "}
-                          <button onClick={() => handleViewsDecrement(option)}>
-                            <img
-                              className="img-fluid p-0 m-0"
-                              src={decrement}
-                              alt=""
-                            />
-                          </button>
-                        </div>{" "}
+                        <div>
+                          <div className="i_d_btn">
+                            <button
+                              onClick={() => handleViewsIncrement(option)}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="10"
+                                height="6"
+                                viewBox="0 0 10 6"
+                                fill="none"
+                              >
+                                <path
+                                  d="M5.3902 0.162908L9.84025 4.70779C9.94325 4.8129 10 4.95323 10 5.10285C10 5.25247 9.94325 5.39279 9.84025 5.49791L9.51261 5.83261C9.29911 6.0504 8.95212 6.0504 8.73895 5.83261C6.68799 3.73798 3.31201 3.74221 1.26105 5.83684C1.15804 5.94196 1.02072 6 0.874302 6C0.727717 6 0.590401 5.94196 0.487312 5.83684L0.159754 5.50214C0.0567474 5.39694 0 5.2567 0 5.10708C0 4.95746 0.0567474 4.81714 0.159754 4.71202L4.61386 0.162908C4.7172 0.0575416 4.85516 -0.00033066 5.00183 1.22505e-06C5.14906 -0.000330648 5.28695 0.0575417 5.3902 0.162908Z"
+                                  fill="#5E6E78"
+                                  fill-opacity="0.8"
+                                />
+                              </svg>
+                            </button>{" "}
+                            <div onClick={() => handleViewsDecrement(option)}>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="10"
+                                height="6"
+                                viewBox="0 0 10 6"
+                                fill="none"
+                              >
+                                <path
+                                  d="M4.6098 5.83709L0.159755 1.29221C0.0567475 1.1871 -2.90466e-08 1.04677 -2.48947e-08 0.897152C-2.07429e-08 0.74753 0.0567475 0.607207 0.159755 0.50209L0.487394 0.167391C0.700889 -0.0503998 1.04788 -0.0503998 1.26105 0.167391C3.31201 2.26202 6.68799 2.25779 8.73895 0.163157C8.84196 0.0580394 8.97928 6.18285e-07 9.1257 6.28367e-07C9.27228 6.38461e-07 9.4096 0.0580394 9.51269 0.163157L9.84025 0.497856C9.94325 0.603056 10 0.743296 10 0.892918C10 1.04254 9.94325 1.18286 9.84025 1.28798L5.38613 5.83709C5.2828 5.94246 5.14484 6.00033 4.99817 6C4.85094 6.00033 4.71305 5.94246 4.6098 5.83709Z"
+                                  fill="#5E6E78"
+                                  fill-opacity="0.3"
+                                />
+                              </svg>
+                            </div>
+                          </div>{" "}
+                        </div>
                       </div>
                     </div>
                   </div>
