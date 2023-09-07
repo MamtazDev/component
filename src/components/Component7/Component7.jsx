@@ -6,26 +6,16 @@ export default function Component7() {
   const [open, setOpen] = useState(false);
   const [date, setDate] = useState(null);
   const [dateState, setDateState] = useState(null);
-  const [showTodayDate, setShowTodayDate] = useState(false);
-
+  const [titleCount, setTitleCount] = useState(0);
   const handleOpen = () => {
     setOpen(!open);
   };
   const handleCalender = () => {
     setDate(!date);
   };
-  console.log(dateState);
   const changeDate = (e) => {
     setDateState(e);
-  };
-  const toggleTodayDate = () => {
-    if (!showTodayDate) {
-      const today = new Date();
-      setDateState(today);
-    } else {
-      setDateState(null);
-    }
-    setShowTodayDate(!showTodayDate);
+    setTitleCount(titleCount + 1);
   };
 
   const formattedDate = dateState ? (
@@ -36,7 +26,7 @@ export default function Component7() {
       <p>
         {date ? (
           <i className="fas fa-angle-up"></i>
-          ) : (
+        ) : (
           <i className="fas fa-angle-down "></i>
         )}
       </p>
@@ -47,7 +37,9 @@ export default function Component7() {
     <div>
       <div className={`${!open ? "component_four" : "component_full_seven"}`}>
         <div onClick={handleOpen} className="heading">
-          <p className="title">Component Title 7</p>
+          <p className="title">
+            Component Title 7 {date && titleCount !== 0 && `(${titleCount})`}
+          </p>
           <p>
             {open ? (
               <i className="fas fa-angle-down rotate"></i>

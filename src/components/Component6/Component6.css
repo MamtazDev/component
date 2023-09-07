@@ -1,7 +1,7 @@
 .angle_btn_design {
     background-color: white !important;
     border: none !important;
-    margin-right: 3px;
+    /* margin-right: 3px; */
     cursor: pointer;
 }
 
@@ -36,4 +36,27 @@
 }
 .left-arrow-design:hover{
     color: #5E6E78CC;
+}
+.ul_design1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 300px;
+    height: 103px; */
+}
+.ul_design1 li{
+    list-style: none;
+}
+.ul_design1 input{
+max-width: 35px;
+height: 26px;
+border-radius: 10px;
+border: 1px solid rgba(0, 0, 0, 0.20);
+background: #FFF;
+margin-left: 5px;
+margin-right: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
 }
