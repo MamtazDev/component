@@ -67,15 +67,18 @@ const Component2 = () => {
                           }`}
                         ></div>
                       </div>
-                      <p  style={{
+                      <p
+                        className="p_option"
+                        style={{
                           background: activeOptions[index]
                             ? "rgba(94, 110, 120, 0.20)"
                             : "rgba(94, 110, 120, 0.10)",
                           padding: activeOptions[index] ? "5px 8px" : "5px 8px",
-                          color: activeOptions[index]
-                            ? "#5E6E78"
-                            : "#5E6E78",
-                        }}>{option}</p>
+                          color: activeOptions[index] ? "#5E6E78" : "#5E6E78",
+                        }}
+                      >
+                        {option}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -100,11 +103,14 @@ const Component2 = () => {
                         ></div>
                       </div>
                       <p
+                        className="p_option"
                         style={{
                           background: activeOptions[index + 5]
                             ? "rgba(94, 110, 120, 0.20)"
                             : "rgba(94, 110, 120, 0.10)",
-                          padding: activeOptions[index + 5] ? "5px 8px" : "5px 8px",
+                          padding: activeOptions[index + 5]
+                            ? "5px 8px"
+                            : "5px 8px",
                           color: activeOptions[index + 5]
                             ? "#5E6E78"
                             : "#5E6E78",

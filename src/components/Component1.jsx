@@ -261,7 +261,7 @@ export default function Component1() {
           <i className={`${show && "rotate"} fa-solid fa-chevron-down`}></i>
         </div>
         {show && (
-          <div>
+          <div className="scroll_bar">
             <input
               type="text"
               className="search_input"

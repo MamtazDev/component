@@ -60,7 +60,6 @@ const Component3 = () => {
                       className="option"
                     >
                       <div className="checkbox">
-                        {" "}
                         <div
                           className={`option ${
                             activeOptions[index]
@@ -70,6 +69,7 @@ const Component3 = () => {
                         ></div>
                       </div>
                       <p
+                       className="p_option"
                         style={{
                           background: activeOptions[index]
                             ? "rgba(94, 110, 120, 0.20)"

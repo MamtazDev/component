@@ -51,7 +51,7 @@ p {
 }
 
 .all_options_scroll {
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     max-height: 548.502px;
 
 }
@@ -107,6 +107,19 @@ p {
     gap: 10px;
     align-items: center;
 }
+/* .all .option {
+    color: #5E6E78;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 17px;
+    border-radius: 19px;
+    background: rgba(94, 110, 120, 0.10);
+    padding: 5px 8px;
+    transition: 0.3s ease-in;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+} */
 
 .all .inner_box {
     background: white;
@@ -121,6 +134,15 @@ p {
     color: #5E6E78;
 
 }
+.all .option:hover .p_option {
+    background: rgba(94, 110, 120, 0.20);
+    color: #5E6E78;
+}
+
+.all .option:hover p{
+    background: rgba(94, 110, 120, 0.20);
+    color: #5E6E78;
+}
 
 .option:hover .input_option_designp {
     display: block;
@@ -134,6 +156,10 @@ p {
     height: 100%;
 }
 
+.p_option:hover {
+    background: rgba(94, 110, 120, 0.20) !important;
+    color: #5E6E78 !important;
+}
 
 
 .input_option_design {
@@ -210,15 +236,21 @@ p {
 /* Webkit Scrollbar Styles */
 ::-webkit-scrollbar {
     width: 8px;
-    height: 30px;
-  }
-  
-  ::-webkit-scrollbar-thumb {
+    height: 30px !important;
+}
+
+::-webkit-scrollbar-thumb {
     background: rgba(94, 110, 120, 0.40);
     border-radius: 4px;
-    height: 30px;
-  }
-  
-  ::-webkit-scrollbar-track {
-  background:white;
-  }
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+.scroll_bar {
+    overflow-y: scroll !important;
+    max-height: 540px;
+
+}
