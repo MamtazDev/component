@@ -106,7 +106,9 @@ p {
     display: flex;
     gap: 10px;
     align-items: center;
+    height: 26px;
 }
+
 /* .all .option {
     color: #5E6E78;
     font-size: 13px;
@@ -134,12 +136,13 @@ p {
     color: #5E6E78;
 
 }
+
 .all .option:hover .p_option {
     background: rgba(94, 110, 120, 0.20);
     color: #5E6E78;
 }
 
-.all .option:hover p{
+.all .option:hover p {
     background: rgba(94, 110, 120, 0.20);
     color: #5E6E78;
 }
@@ -160,8 +163,6 @@ p {
     background: rgba(94, 110, 120, 0.20) !important;
     color: #5E6E78 !important;
 }
-
-
 .input_option_design {
     width: 50px;
     border: none;
@@ -226,14 +227,12 @@ p {
 
 .all .option:hover .i_d_btn {
     display: flex;
-    gap: 5px;
+    gap: 2px;
     flex-direction: column;
     align-items: center !important;
     padding: 0;
-    margin-bottom: 10px;
 }
 
-/* Webkit Scrollbar Styles */
 ::-webkit-scrollbar {
     width: 8px;
     height: 30px !important;
@@ -251,6 +250,6 @@ p {
 
 .scroll_bar {
     overflow-y: scroll !important;
-    max-height: 540px;
+    max-height: 300px;
 
 }

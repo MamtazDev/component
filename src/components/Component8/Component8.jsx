@@ -61,6 +61,7 @@ const Component8 = () => {
                         ></div>
                       </div>
                       <p
+                       className="p_option"
                         style={{
                           background: activeOptions[index]
                             ? "rgba(94, 110, 120, 0.20)"
