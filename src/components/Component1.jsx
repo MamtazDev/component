@@ -234,24 +234,16 @@ export default function Component1() {
     const searchText = e.target.value;
     setSearchText(searchText);
   };
-
   const handleViewsIncrement = (option) => {
-    // Create a copy of the optionViews object
     const updatedOptionViews = { ...optionViews };
-    // Increment the views for the specified option
     updatedOptionViews[option] += 1;
-    // Update the state with the new views
     setOptionViews(updatedOptionViews);
   };
 
   const handleViewsDecrement = (option) => {
-    // Create a copy of the optionViews object
     const updatedOptionViews = { ...optionViews };
-    // Ensure that views don't go below 1
     if (updatedOptionViews[option] > 1) {
-      // Decrement the views for the specified option
       updatedOptionViews[option] -= 1;
-      // Update the state with the new views
       setOptionViews(updatedOptionViews);
     }
   };
@@ -297,7 +289,7 @@ export default function Component1() {
               <h6>All</h6>
               <div className="all_options_scroll">
                 {allOptions.map((option, index) => (
-                  <div className="">
+                  <div className="" key={index}>
                     <div key={index} className="option">
                       <div className="checkbox">
                         <div className="inner_box"></div>
