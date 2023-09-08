@@ -253,3 +253,8 @@ p {
     max-height: 300px;
 
 }
+.scrol_bar_3 {
+    overflow-y: scroll !important;
+    max-height: 150px;
+overflow-x: hidden;
+}

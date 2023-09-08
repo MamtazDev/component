@@ -49,7 +49,7 @@ const Component3 = () => {
           <i className={`${show && "rotate"} fa-solid fa-chevron-down`}></i>
         </div>
         {show && (
-          <div>
+          <div className="scrol_bar_3">
             <div className="row">
               <div className="col-6">
                 <div className="all">
