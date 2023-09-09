@@ -97,7 +97,7 @@ export default function Component5() {
               ))}
             </div>
             <div className="all">
-              <h6>All (Sorted)</h6>
+              <h6>All</h6>
               <div className="all_options_scroll">
                 {allOptions.map((option, index) => (
                   <div
