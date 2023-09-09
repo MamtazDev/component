@@ -75,12 +75,13 @@ export default function Component4() {
                     <i className="m-2 fas fa-angle-down"></i>
                   )}
                   {optionsOpen && (
-                    <div>
+                    <div >
                       {options.map((option) => (
                         <div
                           key={option}
                           className={selectedOption === option ? "selected" : ""}
                           onClick={() => handleOptionSelect(option)}
+                          
                         >
                           {option}
                         </div>
