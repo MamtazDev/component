@@ -10,7 +10,9 @@
     justify-content: space-between;
 
 }
-
+.selected{
+    border: 1px solid grey;
+}
 .rotate {
     transform: rotate(180deg);
 }
