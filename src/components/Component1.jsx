@@ -124,7 +124,7 @@ export default function Component1() {
               <div className="all_options_scroll">
                 {allOptions.map((option, index) => (
                   <div className="" key={index}>
-                    <div key={index} className="option">
+                    <div key={index} onClick={() => handleClick(index)} className="option">
                       <div className="checkbox">
                         <div className="inner_box"></div>
                       </div>
@@ -134,7 +134,7 @@ export default function Component1() {
                         <div>
                           <div className="i_d_btn">
                             <button
-                              onClick={() => handleViewsIncrement(option)}
+                              onMouseOver={() => handleViewsIncrement(option)}
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +150,7 @@ export default function Component1() {
                                 />
                               </svg>
                             </button>{" "}
-                            <div onClick={() => handleViewsDecrement(option)}>
+                            <div onMouseOver={() => handleViewsDecrement(option)}>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="10"
